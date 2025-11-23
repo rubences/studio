@@ -77,8 +77,8 @@ export function ReactInActionDiagram({ className }: { className?: string }) {
         <text x="30" y="190" fontSize="9" className="fill-green-500" fontWeight="bold">
           ✓ El error 404 significa que el recurso no existe.
         </text>
-        <text x="30" y="207" fontSize="9" className="fill-secondary-foreground">
-          <strong>Soluciones:</strong>
+        <text x="30" y="207" fontSize="9" fontWeight="bold" className="fill-secondary-foreground">
+          Soluciones:
         </text>
         <text x="40" y="221" fontSize="9" className="fill-secondary-foreground">
           1. Verifica que tu sesión esté activa (logout/login)
