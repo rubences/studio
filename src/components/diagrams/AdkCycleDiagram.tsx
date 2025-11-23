@@ -1,6 +1,14 @@
 export function AdkCycleDiagram({ className }: { className?: string }) {
+  const steps = [
+    { name: "Bootstrap", detail: "Starter Pack", color: "hsl(var(--chart-1))" },
+    { name: "Desarrollar", detail: "Escribir código", color: "hsl(var(--chart-2))" },
+    { name: "Automatizar", detail: "CI/CD", color: "hsl(var(--chart-3))" },
+    { name: "Evaluar", detail: "Pruebas + Tests", color: "hsl(var(--chart-4))" },
+    { name: "Monitorear", detail: "Producción", color: "hsl(var(--chart-5))" },
+  ];
+
   return (
-    <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg" className={className}>
       <defs>
         <marker
           id="arrow_adk"
@@ -13,52 +21,30 @@ export function AdkCycleDiagram({ className }: { className?: string }) {
         >
           <path d="M 0 0 L 10 5 L 0 10 z" className="fill-muted-foreground" />
         </marker>
-        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="hsl(var(--chart-1))" />
-          <stop offset="100%" stopColor="hsl(var(--chart-2))" />
-        </linearGradient>
       </defs>
       
-      <g className="text-center font-body">
-        {/* Step 1 */}
-        <circle cx="100" cy="150" r="40" fill="hsl(var(--chart-1))" />
-        <text x="100" y="145" fontSize="14" fontWeight="bold" className="fill-primary-foreground" textAnchor="middle">1</text>
-        <text x="100" y="162" fontSize="10" className="fill-primary-foreground" textAnchor="middle">Bootstrap</text>
-        <text x="100" y="210" fontSize="10" className="fill-secondary-foreground" textAnchor="middle">Starter Pack</text>
-        
-        {/* Step 2 */}
-        <circle cx="220" cy="150" r="40" fill="hsl(var(--chart-2))" />
-        <text x="220" y="145" fontSize="14" fontWeight="bold" className="fill-accent-foreground" textAnchor="middle">2</text>
-        <text x="220" y="162" fontSize="10" className="fill-accent-foreground" textAnchor="middle">Desarrollar</text>
-        <text x="220" y="210" fontSize="10" className="fill-secondary-foreground" textAnchor="middle">Escribir código</text>
-        
-        {/* Step 3 */}
-        <circle cx="340" cy="150" r="40" fill="hsl(var(--chart-3))" />
-        <text x="340" y="145" fontSize="14" fontWeight="bold" className="fill-primary-foreground" textAnchor="middle">3</text>
-        <text x="340" y="162" fontSize="10" className="fill-primary-foreground" textAnchor="middle">Automatizar</text>
-        <text x="340" y="210" fontSize="10" className="fill-secondary-foreground" textAnchor="middle">CI/CD</text>
+      <g className="font-body">
+        {steps.map((step, i) => (
+          <g key={i}>
+            {/* Circle */}
+            <circle cx={100 + i * 150} cy="150" r="45" fill={step.color} />
+            <circle cx={100 + i * 150} cy="150" r="45" fill="black" opacity="0" className="transition-all duration-300 hover:opacity-10" />
 
-        {/* Step 4 */}
-        <circle cx="460" cy="150" r="40" fill="hsl(var(--chart-4))" />
-        <text x="460" y="145" fontSize="14" fontWeight="bold" className="fill-foreground" textAnchor="middle">4</text>
-        <text x="460" y="162" fontSize="10" className="fill-foreground" textAnchor="middle">Evaluar</text>
-        <text x="460" y="210" fontSize="10" className="fill-secondary-foreground" textAnchor="middle">Pruebas + Tests</text>
-        
-        {/* Step 5 */}
-        <circle cx="580" cy="150" r="40" fill="hsl(var(--chart-5))" />
-        <text x="580" y="145" fontSize="14" fontWeight="bold" className="fill-primary-foreground" textAnchor="middle">5</text>
-        <text x="580" y="162" fontSize="10" className="fill-primary-foreground" textAnchor="middle">Monitorear</text>
-        <text x="580" y="210" fontSize="10" className="fill-secondary-foreground" textAnchor="middle">Producción</text>
+            {/* Texts */}
+            <text x={100 + i * 150} y="145" fontSize="16" fontWeight="bold" className="fill-primary-foreground" textAnchor="middle" pointerEvents="none">{i + 1}</text>
+            <text x={100 + i * 150} y="165" fontSize="12" className="fill-primary-foreground" textAnchor="middle" pointerEvents="none">{step.name}</text>
+            <text x={100 + i * 150} y="215" fontSize="11" className="fill-secondary-foreground" textAnchor="middle" fontWeight="500" pointerEvents="none">{step.detail}</text>
 
-        {/* Arrows */}
-        <path d="M 140 150 L 180 150" className="stroke-muted-foreground" strokeWidth="1.5" markerEnd="url(#arrow_adk)" />
-        <path d="M 260 150 L 300 150" className="stroke-muted-foreground" strokeWidth="1.5" markerEnd="url(#arrow_adk)" />
-        <path d="M 380 150 L 420 150" className="stroke-muted-foreground" strokeWidth="1.5" markerEnd="url(#arrow_adk)" />
-        <path d="M 500 150 L 540 150" className="stroke-muted-foreground" strokeWidth="1.5" markerEnd="url(#arrow_adk)" />
+            {/* Arrow */}
+            {i < steps.length - 1 && (
+              <path d={`M ${145 + i * 150} 150 L ${100 + (i+1) * 150 - 45} 150`} className="stroke-muted-foreground" strokeWidth="2" markerEnd="url(#arrow_adk)" />
+            )}
+          </g>
+        ))}
         
         {/* Loop back */}
-        <path d="M 580 190 C 580 250, 100 250, 100 190" className="stroke-muted-foreground" strokeWidth="1.5" fill="none" markerEnd="url(#arrow_adk)" strokeDasharray="4 4" />
-        <text x="340" y="270" fontSize="11" className="fill-muted-foreground" textAnchor="middle" fontStyle="italic">
+        <path d="M 700 195 A 300 100 0 0 1 100 195" className="stroke-muted-foreground" strokeWidth="2" fill="none" markerEnd="url(#arrow_adk)" strokeDasharray="5 5" />
+        <text x="400" y="275" fontSize="12" className="fill-muted-foreground" textAnchor="middle" fontStyle="italic">
           Iteración y Mejora Continua
         </text>
       </g>

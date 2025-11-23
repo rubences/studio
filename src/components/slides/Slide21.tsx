@@ -2,12 +2,12 @@ import { GeminiComparisonDiagram } from "../diagrams/GeminiComparisonDiagram";
 
 export function Slide21() {
   return (
-    <section className="h-full w-full flex flex-col justify-center p-8 md:p-16 bg-background text-foreground">
-      <h2 className="font-headline text-3xl md:text-4xl mb-6 text-primary">
-        Elige el Cerebro Correcto: Gemini
+    <section className="h-full w-full flex flex-col justify-center p-8 md:p-12 bg-background text-foreground">
+      <h2 className="font-headline text-3xl md:text-4xl mb-4 text-primary">
+        El Cerebro: Eligiendo el Modelo Gemini Adecuado
       </h2>
       <p className="text-secondary-foreground mb-8 max-w-3xl">
-        No todos los modelos son iguales. La elección del modelo Gemini adecuado es clave para optimizar el rendimiento y el costo de tu agente.
+        La elección del modelo es una decisión estratégica. No se trata solo de potencia, sino de adecuar la capacidad al coste y a la complejidad de la tarea.
       </p>
       <GeminiComparisonDiagram className="w-full h-auto" />
     </section>

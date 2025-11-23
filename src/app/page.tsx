@@ -46,6 +46,10 @@ import { Slide33 } from "@/components/slides/Slide33";
 import { Slide34 } from "@/components/slides/Slide34";
 import { Slide35 } from "@/components/slides/Slide35";
 import { Slide36 } from "@/components/slides/Slide36";
+import { Slide37 } from "@/components/slides/Slide37";
+import { Slide38 } from "@/components/slides/Slide38";
+import { Slide39 } from "@/components/slides/Slide39";
+import { Slide40 } from "@/components/slides/Slide40";
 
 
 export default function Home() {
@@ -55,8 +59,10 @@ export default function Home() {
     <Slide11 />, <AgentInteractionSlide />, <Slide12 />, <Slide12b />, <Slide13 />, 
     <Slide14 />, <Slide15 />, <Slide16 />, <Slide17 />, <Slide18 />, 
     <Slide19 />, <Slide20 />, <Slide21 />, <Slide22 />, <Slide23 />, 
-    <Slide24 />, <Slide25 />, <Slide26 />, <Slide26b />, <Slide26c />,
-    <Slide26d />, <Slide27 />, <Slide28 />, <Slide29 />, <Slide30 />,
+    <Slide24 />, <Slide25 />, 
+    <Slide26 />, <Slide26b />, <Slide26c />, <Slide26d />, 
+    <Slide37 />, <Slide38 />, <Slide39 />, <Slide40 />,
+    <Slide27 />, <Slide28 />, <Slide29 />, <Slide30 />,
     <Slide31 />, <Slide32 />, <Slide33 />, <Slide34 />, <Slide35 />, 
     <Slide36 />
   ];
