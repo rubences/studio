@@ -1,7 +1,7 @@
 export function Slide26d() {
   return (
-    <section className="h-full w-full flex flex-col justify-center p-8 md:p-16 bg-background text-foreground">
-      <h2 className="font-headline text-3xl md:text-4xl mb-8 text-primary">
+    <section className="h-full w-full flex flex-col justify-center p-8 md:p-12 bg-background text-foreground">
+      <h2 className="font-headline text-3xl md:text-4xl mb-6 text-primary">
         Roadmap de Agentes por Etapa de Startup
       </h2>
       <div className="space-y-4 w-full">
@@ -45,5 +45,3 @@ export function Slide26d() {
     </section>
   );
 }
-
-    
