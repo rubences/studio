@@ -62,20 +62,22 @@ export default function Home() {
   ];
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen bg-background p-4 sm:p-8 overflow-hidden">
-      <Carousel className="w-full max-w-5xl">
+    <main className="flex flex-col items-center justify-center min-h-screen bg-background p-4 sm:p-8">
+      <div className="absolute top-8 left-8 text-lg font-headline font-bold text-foreground">AgentFlow</div>
+      <Carousel className="w-full max-w-6xl">
         <CarouselContent>
           {slides.map((slide, index) => (
             <CarouselItem key={index}>
-              <div className="aspect-video bg-background overflow-hidden shadow-2xl shadow-primary/10">
+              <div className="aspect-video bg-card rounded-2xl border shadow-sm overflow-hidden">
                 {slide}
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="text-primary hover:bg-primary/10 hover:text-primary" />
-        <CarouselNext className="text-primary hover:bg-primary/10 hover:text-primary" />
+        <CarouselPrevious className="text-primary hover:bg-primary/10 hover:text-primary -left-16" />
+        <CarouselNext className="text-primary hover:bg-primary/10 hover:text-primary -right-16" />
       </Carousel>
+      <div className="absolute bottom-8 text-sm text-muted-foreground">Usa las flechas para navegar</div>
     </main>
   );
 }
