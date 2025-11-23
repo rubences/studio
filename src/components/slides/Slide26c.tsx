@@ -1,49 +1,45 @@
 export function Slide26c() {
   return (
-    <section className="h-full w-full flex flex-col justify-center p-16 bg-background text-foreground">
-      <h2 className="font-headline text-3xl mb-6 text-primary">
-        ADK: Casos Técnicos Avanzados
+    <section className="h-full w-full flex flex-col justify-center p-8 md:p-16 bg-background text-foreground">
+      <h2 className="font-headline text-3xl md:text-4xl mb-6 text-primary">
+        Ejemplo Práctico: Agente DevOps (Paso a Paso)
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 w-full">
-        <div className="bg-card p-4 border-l-4 border-indigo-500">
-          <h3 className="font-headline text-base text-indigo-500 mb-2">🔧 DevOps/Infra</h3>
-          <p className="text-xs text-secondary-foreground"><strong>Multiagente:</strong> Orquestación</p>
-          <ul className="text-xs text-secondary-foreground list-disc list-inside pl-2 mt-1">
-            <li>Monitoreo logs distribuido</li>
-            <li>Auto-scaling deployment</li>
-            <li>Rollback automático</li>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-full">
+        {/* Step 1 */}
+        <div className="bg-card p-5 rounded-lg border flex flex-col">
+          <p className="text-primary font-bold">Paso 1: Detección de Alerta</p>
+          <p className="text-sm text-secondary-foreground mt-2">
+            Cloud Monitoring dispara una alerta: la latencia de la API ha superado los 500ms.
+          </p>
+          <ul className="text-xs text-muted-foreground list-disc list-inside space-y-1 mt-3 flex-grow">
+            <li><strong className="text-secondary-foreground">Herramienta:</strong> Webhook de Pub/Sub conectado a Cloud Monitoring.</li>
+            <li><strong className="text-secondary-foreground">Cerebro (Gemini):</strong> Interpreta la carga útil de la alerta. Identifica el servicio afectado: `api-gateway`.</li>
+            <li><strong className="text-secondary-foreground">Acción:</strong> Inicia el protocolo de "incidencia de latencia". Crea un canal de Slack `#incidencia-api-latencia`.</li>
           </ul>
-          <p className="text-xs text-green-500 mt-1"><strong>Impacto:</strong> MTTR -70%</p>
         </div>
-        <div className="bg-card p-4 border-l-4 border-purple-500">
-          <h3 className="font-headline text-base text-purple-500 mb-2">📊 Data Engineering</h3>
-          <p className="text-xs text-secondary-foreground"><strong>Multiagente:</strong> Pipelines</p>
-          <ul className="text-xs text-secondary-foreground list-disc list-inside pl-2 mt-1">
-            <li>Ingesta datos paralela</li>
-            <li>Validación calidad</li>
-            <li>Alertas anomalías data</li>
+        {/* Step 2 */}
+        <div className="bg-card p-5 rounded-lg border flex flex-col">
+          <p className="text-primary font-bold">Paso 2: Análisis de Causa Raíz</p>
+          <p className="text-sm text-secondary-foreground mt-2">
+            El agente busca la causa del aumento de la latencia.
+          </p>
+          <ul className="text-xs text-muted-foreground list-disc list-inside space-y-1 mt-3 flex-grow">
+            <li><strong className="text-secondary-foreground">Herramientas:</strong> API de Cloud Logging, API de Cloud Trace.</li>
+            <li><strong className="text-secondary-foreground">Cerebro (Gemini):</strong> Correla los logs y trazas. Descubre un aumento en queries lentas a la base de datos `users-db`.</li>
+            <li><strong className="text-secondary-foreground">Acción:</strong> Publica en el canal de Slack: "Causa probable: queries lentas a `users-db`. Analizando el último deploy..."</li>
           </ul>
-          <p className="text-xs text-green-500 mt-1"><strong>Impacto:</strong> 5x más rápido</p>
         </div>
-        <div className="bg-card p-4 border-l-4 border-fuchsia-500">
-          <h3 className="font-headline text-base text-fuchsia-500 mb-2">🧪 QA Automation</h3>
-          <p className="text-xs text-secondary-foreground"><strong>Multiagente:</strong> Tests</p>
-          <ul className="text-xs text-secondary-foreground list-disc list-inside pl-2 mt-1">
-            <li>Tests generados automático</li>
-            <li>Ejecución paralela</li>
-            <li>Reportes inteligentes</li>
+        {/* Step 3 */}
+        <div className="bg-card p-5 rounded-lg border flex flex-col">
+          <p className="text-primary font-bold">Paso 3: Mitigación y Rollback</p>
+          <p className="text-sm text-secondary-foreground mt-2">
+            El agente identifica el commit problemático y actúa.
+          </p>
+          <ul className="text-xs text-muted-foreground list-disc list-inside space-y-1 mt-3 flex-grow">
+            <li><strong className="text-secondary-foreground">Herramientas:</strong> API de GitHub, API de Cloud Deploy.</li>
+            <li><strong className="text-secondary-foreground">Cerebro (Gemini):</strong> Confirma que el último deploy en `api-gateway` introdujo una nueva query sin indexar.</li>
+            <li><strong className="text-secondary-foreground">Acción:</strong> Ejecuta el workflow de `rollback` en Cloud Deploy a la versión anterior. Publica: "Rollback iniciado. Monitoreando la latencia."</li>
           </ul>
-          <p className="text-xs text-green-500 mt-1"><strong>Impacto:</strong> 80% cobertura</p>
-        </div>
-        <div className="bg-card p-4 border-l-4 border-rose-500">
-          <h3 className="font-headline text-base text-rose-500 mb-2">👀 Code Review</h3>
-          <p className="text-xs text-secondary-foreground"><strong>Flujo:</strong> PR automático</p>
-          <ul className="text-xs text-secondary-foreground list-disc list-inside pl-2 mt-1">
-            <li>Análisis seguridad</li>
-            <li>Style + performance</li>
-            <li>Sugerencias mejora</li>
-          </ul>
-          <p className="text-xs text-green-500 mt-1"><strong>Impacto:</strong> -50% defectos</p>
         </div>
       </div>
     </section>

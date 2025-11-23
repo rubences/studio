@@ -1,49 +1,45 @@
 export function Slide26b() {
   return (
-    <section className="h-full w-full flex flex-col justify-center p-16 bg-background text-foreground">
-      <h2 className="font-headline text-3xl mb-6 text-primary">
-        Casos de Uso: Otras Industrias
+    <section className="h-full w-full flex flex-col justify-center p-8 md:p-16 bg-background text-foreground">
+      <h2 className="font-headline text-3xl md:text-4xl mb-6 text-primary">
+        Ejemplo Práctico: Agente de Soporte (Paso a Paso)
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 w-full">
-        <div className="bg-card p-4 border-l-4 border-pink-500">
-          <h3 className="font-headline text-base text-pink-500 mb-2">🏦 Fintech</h3>
-          <p className="text-xs text-secondary-foreground"><strong>Input:</strong> Transacciones + docs KYC</p>
-          <ul className="text-xs text-secondary-foreground list-disc list-inside pl-2 mt-1">
-            <li>Detección fraude real-time</li>
-            <li>Análisis riesgo crediticio</li>
-            <li>Compliance AML automático</li>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-full">
+        {/* Step 1 */}
+        <div className="bg-card p-5 rounded-lg border flex flex-col">
+          <p className="text-primary font-bold">Paso 1: Recepción y Triaje</p>
+          <p className="text-sm text-secondary-foreground mt-2">
+            Un usuario reporta un problema a través de un chat en la web.
+          </p>
+          <ul className="text-xs text-muted-foreground list-disc list-inside space-y-1 mt-3 flex-grow">
+            <li><strong className="text-secondary-foreground">Input:</strong> "No puedo exportar mi reporte, aparece un error 500".</li>
+            <li><strong className="text-secondary-foreground">Cerebro (Gemini):</strong> Identifica palabras clave: "exportar", "reporte", "error 500". Lo clasifica como "Técnico - Urgente".</li>
+            <li><strong className="text-secondary-foreground">Acción:</strong> Crea un ticket en Jira con prioridad alta y asigna al equipo de backend.</li>
           </ul>
-          <p className="text-xs text-green-500 mt-1"><strong>ROI:</strong> -40% fraude</p>
         </div>
-        <div className="bg-card p-4 border-l-4 border-cyan-500">
-          <h3 className="font-headline text-base text-cyan-500 mb-2">⚕️ Healthcare</h3>
-          <p className="text-xs text-secondary-foreground"><strong>Input:</strong> EHR + protocolos</p>
-          <ul className="text-xs text-secondary-foreground list-disc list-inside pl-2 mt-1">
-            <li>Triaje pacientes automático</li>
-            <li>Recordatorios medicinas</li>
-            <li>Alertas anomalías vitales</li>
+        {/* Step 2 */}
+        <div className="bg-card p-5 rounded-lg border flex flex-col">
+          <p className="text-primary font-bold">Paso 2: Diagnóstico con RAG</p>
+          <p className="text-sm text-secondary-foreground mt-2">
+            El agente intenta resolverlo de inmediato con su base de conocimiento.
+          </p>
+          <ul className="text-xs text-muted-foreground list-disc list-inside space-y-1 mt-3 flex-grow">
+            <li><strong className="text-secondary-foreground">Herramienta:</strong> Vertex AI Search (RAG) sobre la documentación técnica.</li>
+            <li><strong className="text-secondary-foreground">Cerebro (Gemini):</strong> Encuentra 3 posibles causas para el error 500 en exportaciones.</li>
+            <li><strong className="text-secondary-foreground">Acción:</strong> Responde al usuario con la solución más probable (ej: "Verifica que el rango de fechas no exceda 90 días") y pide confirmación.</li>
           </ul>
-          <p className="text-xs text-green-500 mt-1"><strong>ROI:</strong> +25% eficiencia</p>
         </div>
-        <div className="bg-card p-4 border-l-4 border-orange-500">
-          <h3 className="font-headline text-base text-orange-500 mb-2">🛍️ E-commerce</h3>
-          <p className="text-xs text-secondary-foreground"><strong>Input:</strong> Compra + historial</p>
-          <ul className="text-xs text-secondary-foreground list-disc list-inside pl-2 mt-1">
-            <li>Recomendaciones personalizadas</li>
-            <li>Carrito abandonado recovery</li>
-            <li>Análisis churn predictivo</li>
+        {/* Step 3 */}
+        <div className="bg-card p-5 rounded-lg border flex flex-col">
+          <p className="text-primary font-bold">Paso 3: Escalado y Resolución</p>
+          <p className="text-sm text-secondary-foreground mt-2">
+            El usuario confirma que el problema persiste.
+          </p>
+          <ul className="text-xs text-muted-foreground list-disc list-inside space-y-1 mt-3 flex-grow">
+            <li><strong className="text-secondary-foreground">Input:</strong> "Ya lo intenté, sigue sin funcionar".</li>
+            <li><strong className="text-secondary-foreground">Cerebro (Gemini):</strong> Entiende que la solución automática falló.</li>
+            <li><strong className="text-secondary-foreground">Acción:</strong> Actualiza el ticket de Jira con la información, @menciona al ingeniero de guardia en Slack y notifica al usuario que un humano tomará el caso en ~15 min.</li>
           </ul>
-          <p className="text-xs text-green-500 mt-1"><strong>ROI:</strong> +18% AOV</p>
-        </div>
-        <div className="bg-card p-4 border-l-4 border-teal-500">
-          <h3 className="font-headline text-base text-teal-500 mb-2">⚖️ Legal/Compliance</h3>
-          <p className="text-xs text-secondary-foreground"><strong>Input:</strong> Contratos + leyes</p>
-          <ul className="text-xs text-secondary-foreground list-disc list-inside pl-2 mt-1">
-            <li>Análisis contratos automático</li>
-            <li>Alertas riesgos legales</li>
-            <li>Due diligence acelerada</li>
-          </ul>
-          <p className="text-xs text-green-500 mt-1"><strong>ROI:</strong> -60% revisión</p>
         </div>
       </div>
     </section>
