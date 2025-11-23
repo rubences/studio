@@ -1,12 +1,11 @@
 export function FintechOnboardingDiagram({ className }: { className?: string }) {
-  const boxStyle = (color: string) => `fill-card stroke-border stroke-1.5`;
-  const iconBgStyle = (color: string) => `rounded-lg bg-${color}/10 text-${color}`;
-
+  const boxStyle = "fill-card stroke-border stroke-1.5";
+  
   const steps = [
-    { title: "1. Captura de Datos", description: "Usuario sube DNI y selfie a través de la app móvil.", icon: "User", color: "primary" },
-    { title: "2. Verificación IA", description: "Agente usa Vision API para extraer datos y comparar DNI con selfie.", icon: "Cpu", color: "accent" },
-    { title: "3. Cruce de Información", description: "Consulta APIs externas (riesgo crediticio, listas de sanciones).", icon: "Database", color: "accent" },
-    { title: "4. Decisión Final", description: "Si es válido, aprueba, crea cuenta y envía email de bienvenida.", icon: "CheckCircle", color: "green-500" }
+    { title: "1. Captura de Datos", description: "Usuario sube DNI y selfie a través de la app móvil.", icon: "User", color: "hsl(var(--primary))" },
+    { title: "2. Verificación IA", description: "Agente usa Vision API para extraer datos y comparar DNI con selfie.", icon: "Cpu", color: "hsl(var(--accent))" },
+    { title: "3. Cruce de Información", description: "Consulta APIs externas (riesgo crediticio, listas de sanciones).", icon: "Database", color: "hsl(var(--accent))" },
+    { title: "4. Decisión Final", description: "Si es válido, aprueba, crea cuenta y envía email de bienvenida.", icon: "CheckCircle", color: "hsl(var(--chart-4))" }
   ];
 
   return (
@@ -33,11 +32,11 @@ export function FintechOnboardingDiagram({ className }: { className?: string }) 
           )}
 
           <g transform={`translate(${i * 200}, 40)`} filter="url(#shadow_fintech)">
-            <rect x="20" y="20" width="160" height="170" rx="12" className={boxStyle(step.color)} />
+            <rect x="20" y="20" width="160" height="170" rx="12" className={boxStyle} />
             
             <foreignObject x="30" y="35" width="140" height="140">
                 <div xmlns="http://www.w3.org/1999/xhtml" className="flex flex-col items-center text-center">
-                    <div className={`p-3 rounded-lg bg-${step.color}/10 text-${step.color}`}>
+                    <div className="p-3 rounded-lg" style={{ backgroundColor: `${step.color}1A`, color: step.color }}>
                         { step.icon === 'User' && <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> }
                         { step.icon === 'Cpu' && <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><path d="M9 9h6v6H9z"/><path d="M9 1v3m6-3v3M9 20v3m6-3v3M1 9h3m-3 6h3m16-6h3m-3 6h3"/></svg> }
                         { step.icon === 'Database' && <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg> }
