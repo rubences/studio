@@ -92,4 +92,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  .flex-1 {
+    flex: 1 1 0%;
+  }
 }

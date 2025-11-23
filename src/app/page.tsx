@@ -101,8 +101,8 @@ export default function Home() {
   const [api, setApi] = useState<CarouselApi>();
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen bg-background p-4 sm:p-8 font-sans">
-      <header className="absolute top-0 left-0 right-0 p-8 flex justify-between items-center">
+    <main className="flex flex-col h-screen bg-background p-4 sm:p-8 font-sans">
+      <header className="w-full max-w-6xl mx-auto flex justify-between items-center mb-4">
         <div className="flex items-center gap-4">
           <h1 className="font-bold text-lg text-foreground">AgentFlow</h1>
           <Link href="https://cloud.google.com/vertex-ai?hl=es" target="_blank" className="flex items-center gap-1.5 text-sm text-primary hover:underline">
@@ -112,25 +112,25 @@ export default function Home() {
         <SlideNavigator deck={slideDeck} api={api} />
       </header>
 
-      <Carousel setApi={setApi} className="w-full max-w-6xl">
-        <CarouselContent>
-          {slideDeck.map((slide, index) => (
-            <CarouselItem key={index}>
-              <div className="aspect-video bg-card rounded-2xl border shadow-lg overflow-hidden">
-                {slide.component}
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious className="text-primary hover:bg-primary/10 hover:text-primary -left-12 size-10" />
-        <CarouselNext className="text-primary hover:bg-primary/10 hover:text-primary -right-12 size-10" />
-      </Carousel>
+      <div className="flex-1 flex items-center justify-center w-full">
+        <Carousel setApi={setApi} className="w-full max-w-6xl">
+          <CarouselContent>
+            {slideDeck.map((slide, index) => (
+              <CarouselItem key={index}>
+                <div className="aspect-video bg-card rounded-2xl border shadow-lg overflow-hidden">
+                  {slide.component}
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="text-primary hover:bg-primary/10 hover:text-primary -left-12 size-10" />
+          <CarouselNext className="text-primary hover:bg-primary/10 hover:text-primary -right-12 size-10" />
+        </Carousel>
+      </div>
 
-      <footer className="absolute bottom-8 text-sm text-muted-foreground">
+      <footer className="w-full text-center text-sm text-muted-foreground mt-4">
         Usa las flechas para navegar o selecciona una diapositiva en el menú superior derecho
       </footer>
     </main>
   );
 }
-
-    
