@@ -1,3 +1,8 @@
+
+"use client";
+
+import { useState } from 'react';
+import type { CarouselApi } from "@/components/ui/carousel";
 import {
   Carousel,
   CarouselContent,
@@ -5,6 +10,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+
 import { Slide01 } from "@/components/slides/Slide01";
 import { Slide02 } from "@/components/slides/Slide02";
 import { Slide03 } from "@/components/slides/Slide03";
@@ -50,40 +56,81 @@ import { Slide37 } from "@/components/slides/Slide37";
 import { Slide38 } from "@/components/slides/Slide38";
 import { Slide39 } from "@/components/slides/Slide39";
 import { Slide40 } from "@/components/slides/Slide40";
+import { SlideNavigator, SlideDeck } from '@/components/slides/SlideNavigator';
+import { ExternalLink } from 'lucide-react';
+import Link from 'next/link';
 
+const slideDeck: SlideDeck = [
+  { title: "Introducción: Agentes de IA", component: <Slide01 /> },
+  { title: "¿Qué es un Agente de IA?", component: <Slide02 /> },
+  { title: "Impacto Estratégico", component: <Slide03 /> },
+  { title: "Anatomía de un Agente", component: <Slide04 /> },
+  { title: "El Cerebro: Modelos Gemini", component: <Slide05 /> },
+  { title: "Las Manos: Herramientas", component: <Slide06 /> },
+  { title: "La Memoria: 4 Capas", component: <Slide07 /> },
+  { title: "Profundizando: RAG", component: <Slide08 /> },
+  { title: "Caminos de Construcción", component: <Slide09 /> },
+  { title: "Framework: ADK", component: <Slide10 /> },
+  { title: "Arquitecturas de Agentes", component: <Slide11 /> },
+  { title: "Motor: Ciclo ReAct", component: <Slide12 /> },
+  { title: "ReAct en Acción", component: <Slide12b /> },
+  { title: "Opciones de Despliegue", component: <Slide13 /> },
+  { title: "Evaluación (AgentOps)", component: <Slide14 /> },
+  { title: "Ecosistema: Protocolos Abiertos", component: <Slide15 /> },
+  { title: "Protocolos en Práctica", component: <Slide27 /> },
+  { title: "Roadmap por Etapa de Startup", component: <Slide26d /> },
+  { title: "Demo: Asistente Interactivo", component: <AgentInteractionSlide /> },
+  { title: "Caso Práctico: Ventas", component: <Slide26 /> },
+  { title: "Caso Práctico: Soporte", component: <Slide26b /> },
+  { title: "Caso Práctico: DevOps", component: <Slide26c /> },
+  { title: "Caso Práctico: Onboarding Fintech", component: <Slide37 /> },
+  { title: "Caso Práctico: Citas de Salud", component: <Slide38 /> },
+  { title: "Caso Práctico: Devoluciones E-commerce", component: <Slide39 /> },
+  { title: "Caso Práctico: Análisis Legaltech", component: <Slide40 /> },
+  { title: "Checklist Pre-Producción", component: <Slide28 /> },
+  { title: "Desafíos y Limitaciones", component: <Slide29 /> },
+  { title: "Midiendo el ROI", component: <Slide30 /> },
+  { title: "El Futuro (2025-2026)", component: <Slide31 /> },
+  { title: "Resumen: 5 Puntos Clave", component: <Slide35 /> },
+  { title: "Recursos y Siguientes Pasos", component: <Slide32 /> },
+  { title: "¿Preguntas?", component: <Slide33 /> },
+  { title: "Gracias", component: <Slide36 /> },
+];
 
 export default function Home() {
-  const slides = [
-    <Slide01 />, <Slide02 />, <Slide03 />, <Slide04 />, <Slide05 />, 
-    <Slide06 />, <Slide07 />, <Slide08 />, <Slide09 />, <Slide10 />, 
-    <Slide11 />, <AgentInteractionSlide />, <Slide12 />, <Slide12b />, <Slide13 />, 
-    <Slide14 />, <Slide15 />, <Slide16 />, <Slide17 />, <Slide18 />, 
-    <Slide19 />, <Slide20 />, <Slide21 />, <Slide22 />, <Slide23 />, 
-    <Slide24 />, <Slide25 />, 
-    <Slide26 />, <Slide26b />, <Slide26c />, <Slide26d />, 
-    <Slide37 />, <Slide38 />, <Slide39 />, <Slide40 />,
-    <Slide27 />, <Slide28 />, <Slide29 />, <Slide30 />,
-    <Slide31 />, <Slide32 />, <Slide33 />, <Slide34 />, <Slide35 />, 
-    <Slide36 />
-  ];
+  const [api, setApi] = useState<CarouselApi>();
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen bg-background p-4 sm:p-8">
-      <div className="absolute top-8 left-8 text-lg font-headline font-bold text-foreground">AgentFlow</div>
-      <Carousel className="w-full max-w-6xl">
+    <main className="flex flex-col items-center justify-center min-h-screen bg-background p-4 sm:p-8 font-sans">
+      <header className="absolute top-0 left-0 right-0 p-8 flex justify-between items-center">
+        <div className="flex items-center gap-4">
+          <h1 className="font-bold text-lg text-foreground">AgentFlow</h1>
+          <Link href="https://cloud.google.com/vertex-ai?hl=es" target="_blank" className="flex items-center gap-1.5 text-sm text-primary hover:underline">
+            Vertex AI <ExternalLink className="size-3" />
+          </Link>
+        </div>
+        <SlideNavigator deck={slideDeck} api={api} />
+      </header>
+
+      <Carousel setApi={setApi} className="w-full max-w-6xl">
         <CarouselContent>
-          {slides.map((slide, index) => (
+          {slideDeck.map((slide, index) => (
             <CarouselItem key={index}>
-              <div className="aspect-video bg-card rounded-2xl border shadow-sm overflow-hidden">
-                {slide}
+              <div className="aspect-video bg-card rounded-2xl border shadow-lg overflow-hidden">
+                {slide.component}
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="text-primary hover:bg-primary/10 hover:text-primary -left-16" />
-        <CarouselNext className="text-primary hover:bg-primary/10 hover:text-primary -right-16" />
+        <CarouselPrevious className="text-primary hover:bg-primary/10 hover:text-primary -left-12 size-10" />
+        <CarouselNext className="text-primary hover:bg-primary/10 hover:text-primary -right-12 size-10" />
       </Carousel>
-      <div className="absolute bottom-8 text-sm text-muted-foreground">Usa las flechas para navegar</div>
+
+      <footer className="absolute bottom-8 text-sm text-muted-foreground">
+        Usa las flechas para navegar o selecciona una diapositiva en el menú superior derecho
+      </footer>
     </main>
   );
 }
+
+    

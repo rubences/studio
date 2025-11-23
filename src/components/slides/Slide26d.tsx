@@ -6,7 +6,7 @@ export function Slide26d() {
       </h2>
       <div className="space-y-4 w-full">
         {/* Pre-seed / Seed */}
-        <div className="bg-card p-5 rounded-lg border transition-all hover:shadow-lg hover:border-primary">
+        <div className="bg-card p-5 rounded-xl border transition-all hover:shadow-lg hover:border-primary">
           <p className="font-headline font-bold text-lg text-primary">🚀 Pre-seed / Seed: Foco en Validación</p>
           <p className="text-secondary-foreground text-sm mt-2">
             <strong>Objetivo:</strong> Maximizar el aprendizaje y la velocidad con recursos limitados.
@@ -14,11 +14,11 @@ export function Slide26d() {
           <ul className="text-sm text-muted-foreground mt-3 list-disc list-inside space-y-1">
             <li><strong>Agente de Investigación de Mercado:</strong> Analiza competidores, tendencias y sentimiento en redes sociales.</li>
             <li><strong>Agente de "Primer Contacto":</strong> Automatiza emails iniciales y califica leads básicos para validar interés.</li>
-            <li><strong>Stack tecnológico:</strong> Gemini Enterprise (no-code), Zapier/Make, Firestore.</li>
+            <li><strong>Stack tecnológico:</strong> Vertex AI Agent Builder (no-code), Zapier/Make, Firestore.</li>
           </ul>
         </div>
         {/* Series A */}
-        <div className="bg-card p-5 rounded-lg border transition-all hover:shadow-lg hover:border-accent">
+        <div className="bg-card p-5 rounded-xl border transition-all hover:shadow-lg hover:border-accent">
           <p className="font-headline font-bold text-lg text-accent">📈 Series A: Foco en Escalabilidad</p>
           <p className="text-secondary-foreground text-sm mt-2">
             <strong>Objetivo:</strong> Construir sistemas robustos que soporten el crecimiento rápido.
@@ -30,7 +30,7 @@ export function Slide26d() {
           </ul>
         </div>
         {/* Series B+ */}
-        <div className="bg-card p-5 rounded-lg border transition-all hover:shadow-lg hover:border-green-500">
+        <div className="bg-card p-5 rounded-xl border transition-all hover:shadow-lg hover:border-green-500">
           <p className="font-headline font-bold text-lg text-green-500">🔝 Series B+: Foco en Eficiencia y Foso Competitivo</p>
           <p className="text-secondary-foreground text-sm mt-2">
             <strong>Objetivo:</strong> Optimización profunda y creación de ventajas competitivas únicas.
@@ -45,3 +45,5 @@ export function Slide26d() {
     </section>
   );
 }
+
+    

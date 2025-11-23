@@ -1,50 +1,61 @@
 import { Banknote, FileSearch, CheckCircle, ArrowRight } from 'lucide-react';
 
-function Step({ icon: Icon, title, description, color, isFirst = false, isLast = false }: any) {
+function Step({ icon: Icon, title, description, color, isLast = false }: any) {
   return (
-    <div className="flex items-start">
-      <div className="flex flex-col items-center mr-4">
-        <div className={`p-3 rounded-full ${color}/20 text-${color}`}>
-          <Icon className="size-6" />
-        </div>
-        {!isLast && <div className="w-0.5 h-16 bg-border mt-2"></div>}
+    <div className="flex flex-col items-center text-center">
+      <div className={`p-3 rounded-full bg-${color}/20 text-${color}`}>
+        <Icon className="size-8" />
       </div>
-      <div className="bg-card border rounded-lg p-4 flex-1">
-        <h3 className={`font-semibold text-${color}`}>{title}</h3>
-        <p className="text-sm text-muted-foreground">{description}</p>
-      </div>
+      <h3 className={`font-semibold text-lg mt-4 text-${color}`}>{title}</h3>
+      <p className="text-sm text-muted-foreground mt-1 max-w-xs">{description}</p>
+      {!isLast && <ArrowRight className={`size-8 text-border mt-4 hidden md:block`} />}
     </div>
   );
 }
 
 export function Slide37() {
   return (
-    <section className="h-full w-full flex flex-col justify-center p-8 md:p-16 bg-background text-foreground">
-      <h2 className="font-headline text-3xl md:text-4xl mb-2 text-primary">Caso Práctico: Agente de Onboarding (Fintech)</h2>
-      <p className="text-secondary-foreground mb-8 max-w-3xl">Automatización del proceso de alta y verificación de nuevos clientes.</p>
+    <section className="h-full w-full flex flex-col justify-center items-center p-8 md:p-16 bg-background text-foreground">
+      <h2 className="font-headline text-3xl md:text-4xl mb-2 text-primary">Caso Práctico: Onboarding (Fintech)</h2>
+      <p className="text-secondary-foreground mb-12 max-w-3xl text-center">Automatización del proceso de alta y verificación de nuevos clientes para reducir el fraude y acelerar la activación.</p>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <Step
-          icon={Banknote}
-          title="1. Captura de Datos"
-          description="Usuario sube DNI y un selfie a través de la app. El agente recibe las imágenes."
-          color="primary"
-          isFirst={true}
-        />
-        <Step
-          icon={FileSearch}
-          title="2. Verificación y Cruce"
-          description="Usa Google Vision API para extraer datos del DNI y verificar la identidad contra el selfie. Cruza datos con APIs de riesgo crediticio."
-          color="accent"
-        />
-        <Step
-          icon={CheckCircle}
-          title="3. Decisión y Activación"
-          description="Si todo es correcto, aprueba al cliente, crea la cuenta en el sistema y envía un email de bienvenida personalizado."
-          color="green-500"
-          isLast={true}
-        />
+      <div className="grid grid-cols-1 md:grid-cols-4 items-start justify-center gap-6">
+        <div className="col-span-1 md:col-start-1">
+          <Step
+            icon={Banknote}
+            title="1. Captura"
+            description="Usuario sube DNI y un selfie a través de la app. El agente recibe las imágenes de forma segura."
+            color="primary"
+          />
+        </div>
+        <div className="col-span-1">
+          <Step
+            icon={FileSearch}
+            title="2. Verificación"
+            description="Usa Google Vision API para extraer datos del DNI y verificar la identidad contra el selfie."
+            color="accent"
+          />
+        </div>
+        <div className="col-span-1">
+            <Step
+            icon={FileSearch}
+            title="3. Cruce de Datos"
+            description="Consulta APIs externas de riesgo crediticio y listas de sanciones para validar al cliente."
+            color="accent"
+            />
+        </div>
+        <div className="col-span-1">
+          <Step
+            icon={CheckCircle}
+            title="4. Decisión"
+            description="Si todo es correcto, aprueba al cliente, crea la cuenta en el sistema y envía un email de bienvenida."
+            color="green-500"
+            isLast={true}
+          />
+        </div>
       </div>
     </section>
   );
 }
+
+    
