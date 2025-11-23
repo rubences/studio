@@ -1,26 +1,29 @@
 export function Slide02() {
   return (
-    <section className="h-full w-full flex flex-col justify-center p-16 bg-background text-foreground">
-      <h2 className="font-headline text-4xl mb-6 text-primary">
+    <section className="h-full w-full flex flex-col justify-center p-8 md:p-16 bg-background text-foreground">
+      <h2 className="font-headline text-3xl md:text-4xl mb-8 text-primary">
         ¿Qué es un Agente de IA?
       </h2>
-      <ul className="text-lg text-secondary-foreground list-disc pl-6 space-y-3 leading-relaxed">
-        <li>
-          Sistema de IA que{" "}
-          <strong>combina modelos de lenguaje con herramientas</strong>
-        </li>
-        <li>
-          Toma decisiones{" "}
-          <strong>complejas de múltiples pasos</strong> de forma autónoma
-        </li>
-        <li>
-          Patrón ReAct: <strong>Razonar → Actuar → Observar</strong>
-        </li>
-        <li>Integración con APIs, datos y sistemas externos</li>
-        <li>
-          Automatiza flujos de trabajo, <strong>no solo conversaciones</strong>
-        </li>
-      </ul>
+      <div className="space-y-4">
+        <div className="flex items-start gap-4">
+          <div className="flex-shrink-0 bg-primary/10 text-primary w-8 h-8 rounded-full flex items-center justify-center font-bold">1</div>
+          <p className="text-base md:text-lg text-secondary-foreground">
+            Sistema que <strong>combina un cerebro (LLM) con herramientas (APIs, funciones)</strong> para realizar acciones.
+          </p>
+        </div>
+        <div className="flex items-start gap-4">
+          <div className="flex-shrink-0 bg-primary/10 text-primary w-8 h-8 rounded-full flex items-center justify-center font-bold">2</div>
+          <p className="text-base md:text-lg text-secondary-foreground">
+            Toma decisiones <strong>autónomas y de múltiples pasos</strong> para resolver problemas complejos.
+          </p>
+        </div>
+        <div className="flex items-start gap-4">
+          <div className="flex-shrink-0 bg-primary/10 text-primary w-8 h-8 rounded-full flex items-center justify-center font-bold">3</div>
+          <p className="text-base md:text-lg text-secondary-foreground">
+            Sigue un patrón cíclico: <strong>Razonar → Actuar → Observar (ReAct)</strong> hasta cumplir su objetivo.
+          </p>
+        </div>
+      </div>
     </section>
   );
 }

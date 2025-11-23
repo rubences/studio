@@ -1,24 +1,29 @@
+import { Zap, Scaling, ShieldCheck } from "lucide-react";
+
 export function Slide03() {
   return (
-    <section className="h-full w-full flex flex-col justify-center p-16 bg-background text-foreground">
-      <h2 className="font-headline text-4xl mb-6 text-primary">Impacto para Startups</h2>
-      <div className="flex flex-col md:flex-row gap-4 w-full mt-8">
-        <div className="flex-1 bg-card text-foreground p-8 shadow-lg">
-          <h3 className="font-headline text-2xl text-primary">Automatización</h3>
-          <p className="text-secondary-foreground mt-2">
-            Procesos multitarea sin intervención humana
+    <section className="h-full w-full flex flex-col justify-center p-8 md:p-16 bg-background text-foreground">
+      <h2 className="font-headline text-3xl md:text-4xl mb-8 text-primary">Impacto Exponencial para Startups</h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mt-4">
+        <div className="bg-card text-card-foreground p-6 rounded-lg border border-transparent hover:border-primary transition-all">
+          <Zap className="size-8 text-primary mb-3" />
+          <h3 className="font-headline text-xl text-foreground font-semibold">Automatización Total</h3>
+          <p className="text-secondary-foreground mt-2 text-sm">
+            Automatiza flujos de trabajo complejos de principio a fin, no solo tareas aisladas.
           </p>
         </div>
-        <div className="flex-1 bg-card text-foreground p-8 shadow-lg">
-          <h3 className="font-headline text-2xl text-primary">Escala</h3>
-          <p className="text-secondary-foreground mt-2">
-            Equipos pequeños con impacto empresarial
+        <div className="bg-card text-card-foreground p-6 rounded-lg border border-transparent hover:border-primary transition-all">
+          <Scaling className="size-8 text-primary mb-3" />
+          <h3 className="font-headline text-xl text-foreground font-semibold">Escala Asimétrica</h3>
+          <p className="text-secondary-foreground mt-2 text-sm">
+            Permite que equipos pequeños generen el impacto de organizaciones mucho más grandes.
           </p>
         </div>
-        <div className="flex-1 bg-card text-foreground p-8 shadow-lg">
-          <h3 className="font-headline text-2xl text-primary">Ventaja</h3>
-          <p className="text-secondary-foreground mt-2">
-            APIs propias y datos privados integrados
+        <div className="bg-card text-card-foreground p-6 rounded-lg border border-transparent hover:border-primary transition-all">
+          <ShieldCheck className="size-8 text-primary mb-3" />
+          <h3 className="font-headline text-xl text-foreground font-semibold">Ventaja Competitiva</h3>
+          <p className="text-secondary-foreground mt-2 text-sm">
+            Crea una barrera de entrada al integrar tus APIs y datos privados en el núcleo del agente.
           </p>
         </div>
       </div>

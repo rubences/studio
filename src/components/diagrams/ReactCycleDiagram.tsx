@@ -1,48 +1,43 @@
 export function ReactCycleDiagram({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 500 250" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <svg viewBox="0 0 600 250" xmlns="http://www.w3.org/2000/svg" className={className}>
       <defs>
         <marker
           id="arrowhead_react"
-          markerWidth="10"
-          markerHeight="10"
-          refX="9"
-          refY="3"
-          orient="auto"
+          viewBox="0 0 10 10"
+          refX="8"
+          refY="5"
+          markerWidth="6"
+          markerHeight="6"
+          orient="auto-start-reverse"
         >
-          <polygon points="0 0, 10 3, 0 6" className="fill-secondary-foreground" />
+          <path d="M 0 0 L 10 5 L 0 10 z" className="fill-muted-foreground" />
         </marker>
       </defs>
-      <g className="text-center">
-        <rect x="30" y="50" width="120" height="90" rx="6" className="fill-primary" />
-        <text x="90" y="85" fontSize="16" fontWeight="bold" className="fill-primary-foreground" textAnchor="middle">
-          RAZONAR
-        </text>
-        <text x="90" y="108" fontSize="11" className="fill-primary-foreground" textAnchor="middle">
-          Analizar plan
-        </text>
-        <path d="M 150 95 L 195 95" className="stroke-secondary-foreground" strokeWidth="3" fill="none" markerEnd="url(#arrowhead_react)" />
+      <g className="text-center font-body">
+        {/* Step 1 */}
+        <rect x="30" y="50" width="150" height="100" rx="12" className="fill-card stroke-border" />
+        <text x="105" y="90" fontSize="18" fontWeight="600" className="fill-primary" textAnchor="middle">RAZONAR</text>
+        <text x="105" y="115" fontSize="12" className="fill-secondary-foreground" textAnchor="middle">Analizar y planificar</text>
         
-        <rect x="195" y="50" width="120" height="90" rx="6" fill="#10b981" />
-        <text x="255" y="85" fontSize="16" fontWeight="bold" className="fill-foreground" textAnchor="middle">
-          ACTUAR
-        </text>
-        <text x="255" y="108" fontSize="11" className="fill-foreground" textAnchor="middle">
-          Llamar tools
-        </text>
-        <path d="M 315 95 L 360 95" className="stroke-secondary-foreground" strokeWidth="3" fill="none" markerEnd="url(#arrowhead_react)" />
+        <path d="M 180 100 L 220 100" className="stroke-muted-foreground" strokeWidth="1.5" markerEnd="url(#arrowhead_react)" />
         
-        <rect x="360" y="50" width="120" height="90" rx="6" fill="#f59e0b" />
-        <text x="420" y="85" fontSize="16" fontWeight="bold" className="fill-primary-foreground" textAnchor="middle">
-          OBSERVAR
-        </text>
-        <text x="420" y="108" fontSize="11" className="fill-primary-foreground" textAnchor="middle">
-          Integrar datos
-        </text>
+        {/* Step 2 */}
+        <rect x="225" y="50" width="150" height="100" rx="12" className="fill-card stroke-border" />
+        <text x="300" y="90" fontSize="18" fontWeight="600" className="fill-primary" textAnchor="middle">ACTUAR</text>
+        <text x="300" y="115" fontSize="12" className="fill-secondary-foreground" textAnchor="middle">Ejecutar tools</text>
         
-        <path d="M 420 140 Q 420 190 90 190 Q 90 150 90 140" className="stroke-secondary-foreground" strokeWidth="3" fill="none" markerEnd="url(#arrowhead_react)" />
-        <text x="255" y="210" fontSize="12" className="fill-muted-foreground" textAnchor="middle" fontStyle="italic">
-          ↻ Iterar hasta completar
+        <path d="M 375 100 L 415 100" className="stroke-muted-foreground" strokeWidth="1.5" markerEnd="url(#arrowhead_react)" />
+        
+        {/* Step 3 */}
+        <rect x="420" y="50" width="150" height="100" rx="12" className="fill-card stroke-border" />
+        <text x="495" y="90" fontSize="18" fontWeight="600" className="fill-primary" textAnchor="middle">OBSERVAR</text>
+        <text x="495" y="115" fontSize="12" className="fill-secondary-foreground" textAnchor="middle">Integrar resultados</text>
+        
+        {/* Loop back arrow */}
+        <path d="M 495 150 C 495 200, 105 200, 105 150" className="stroke-muted-foreground" strokeWidth="1.5" fill="none" markerEnd="url(#arrowhead_react)" strokeDasharray="4 4" />
+        <text x="300" y="220" fontSize="12" className="fill-muted-foreground" textAnchor="middle" fontStyle="italic">
+          ↻ Iterar hasta completar el objetivo
         </text>
       </g>
     </svg>

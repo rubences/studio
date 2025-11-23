@@ -1,31 +1,45 @@
 export function GeminiComparisonDiagram({ className }: { className?: string }) {
     return (
-        <svg viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg" className={className}>
+        <svg viewBox="0 0 800 250" xmlns="http://www.w3.org/2000/svg" className={className}>
+            <style>
+              {`
+                .row-bg { fill: hsl(var(--card)); }
+                .row-bg:hover { fill: hsl(var(--secondary)); }
+                .title-text { font-size: 14px; font-weight: 600; fill: hsl(var(--primary)); font-family: var(--font-manrope); }
+                .desc-text { font-size: 12px; fill: hsl(var(--secondary-foreground)); }
+                .header-text { font-size: 12px; font-weight: 600; fill: hsl(var(--muted-foreground)); text-transform: uppercase; letter-spacing: 0.5px; }
+              `}
+            </style>
+            
             {/* Headers */}
-            <text x="50" y="25" fontSize="11" fontWeight="bold" className="fill-secondary-foreground">Modelo</text>
-            <text x="220" y="25" fontSize="11" fontWeight="bold" className="fill-secondary-foreground">Caso de Uso</text>
-            <text x="480" y="25" fontSize="11" fontWeight="bold" className="fill-secondary-foreground">Costo-Beneficio</text>
+            <text x="50" y="35" className="header-text">Modelo</text>
+            <text x="250" y="35" className="header-text">Caso de Uso Principal</text>
+            <text x="550" y="35" className="header-text">Costo-Beneficio</text>
             
-            {/* Row 1: Flash-Lite */}
-            <rect x="10" y="35" width="780" height="45" rx="3" className="fill-card"/>
-            <text x="50" y="60" fontSize="10" fontWeight="bold" className="fill-primary">Flash-Lite</text>
-            <text x="220" y="60" fontSize="10" className="fill-secondary-foreground">Tareas rutinarias, bajo costo</text>
-            <rect x="480" y="42" width="100" height="30" rx="2" className="fill-muted"/>
-            <text x="530" y="62" fontSize="9" className="fill-muted-foreground" textAnchor="middle" fontWeight="bold">Muy bajo costo</text>
+            <g>
+              {/* Row 1: Flash-Lite */}
+              <rect x="10" y="50" width="780" height="55" rx="8" className="row-bg transition-all duration-200" />
+              <text x="50" y="80" className="title-text">Flash-Lite</text>
+              <text x="250" y="80" className="desc-text">Tareas de alta frecuencia y bajo costo</text>
+              <text x="550" y="80" className="desc-text" fontWeight="500">⚡️ Muy Rápido y Económico</text>
+            </g>
             
-            {/* Row 2: Flash */}
-            <rect x="10" y="85" width="780" height="45" rx="3" className="fill-card"/>
-            <text x="50" y="110" fontSize="10" fontWeight="bold" className="fill-primary">Flash</text>
-            <text x="220" y="110" fontSize="10" className="fill-secondary-foreground">Producción. Equilibrio óptimo</text>
-            <rect x="480" y="92" width="100" height="30" rx="2" fill="#10b981"/>
-            <text x="530" y="112" fontSize="9" className="fill-foreground" textAnchor="middle" fontWeight="bold">👍 Recomendado</text>
-            
-            {/* Row 3: Pro */}
-            <rect x="10" y="135" width="780" height="45" rx="3" className="fill-card"/>
-            <text x="50" y="160" fontSize="10" fontWeight="bold" className="fill-primary">Pro</text>
-            <text x="220" y="160" fontSize="10" className="fill-secondary-foreground">Razonamiento complejo, código</text>
-            <rect x="480" y="142" width="100" height="30" rx="2" fill="#f59e0b"/>
-            <text x="530" y="162" fontSize="9" className="fill-primary-foreground" textAnchor="middle" fontWeight="bold">Costo premium</text>
+            <g>
+              {/* Row 2: Flash */}
+              <rect x="10" y="115" width="780" height="55" rx="8" className="row-bg transition-all duration-200" />
+              <rect x="10" y="115" width="4" height="55" rx="2" fill="hsl(var(--primary))" />
+              <text x="50" y="145" className="title-text">Flash</text>
+              <text x="250" y="145" className="desc-text">Equilibrio ideal para producción general</text>
+              <text x="550" y="145" className="desc-text" fontWeight="500">👍 Balance Perfecto (Recomendado)</text>
+            </g>
+
+            <g>
+              {/* Row 3: Pro */}
+              <rect x="10" y="180" width="780" height="55" rx="8" className="row-bg transition-all duration-200" />
+              <text x="50" y="210" className="title-text">Pro</text>
+              <text x="250" y="210" className="desc-text">Razonamiento complejo, multimodalidad y código</text>
+              <text x="550" y="210" className="desc-text" fontWeight="500">🧠 Máxima Potencia</text>
+            </g>
         </svg>
     );
 }
